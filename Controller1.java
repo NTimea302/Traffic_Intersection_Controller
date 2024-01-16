@@ -19,11 +19,9 @@ public class Controller1 {
 
 		PetriNet pn = new PetriNet();
 		pn.PetriNetName = "Controller 1";
-
 		pn.NetworkPort = 1400;
 
 		DataString ini = new DataString();
-		// ini.Printable = false;
 		ini.SetName("ini");
 		ini.SetValue("red");
 		pn.ConstantPlaceList.add(ini);

@@ -99,23 +99,6 @@ public class Intersection1 {
 		OP2.Value = new TransferOperation("localhost", "1400", "in2");
 		pn.PlaceList.add(OP2);
 		
-		// ----------------------------------------------------------------------------
-		// ----------------------------Exit lane 2-------------------------------------
-		// ----------------------------------------------------------------------------
-
-		DataCarQueue p13 = new DataCarQueue();
-		p13.Value.Size = 3;
-		p13.SetName("P_o2");
-		pn.PlaceList.add(p13);
-
-		DataCar p14 = new DataCar();
-		p14.SetName("P_o2Exit");
-		pn.PlaceList.add(p14);
-
-		DataTransfer PO2 = new DataTransfer();
-		PO2.SetName("PO2");
-		PO2.Value = new TransferOperation("localhost", "2000", "p5");//????????????????
-		pn.PlaceList.add(PO2);
 
 		// -------------------------------------------------------------------------------------
 		// --------------------------------Lane3-----------------------------------------------
@@ -160,7 +143,25 @@ public class Intersection1 {
 		PO3.SetName("PO3");
 		PO3.Value = new TransferOperation("localhost", "1002", "p5");
 		pn.PlaceList.add(PO3);
+		
+		// ----------------------------------------------------------------------------
+		// ----------------------------Exit lane 4-------------------------------------
+		// ----------------------------------------------------------------------------
 
+		DataCarQueue p13 = new DataCarQueue();
+		p13.Value.Size = 3;
+		p13.SetName("P_o2");
+		pn.PlaceList.add(p13);
+
+		DataCar p14 = new DataCar();
+		p14.SetName("P_o2Exit");
+		pn.PlaceList.add(p14);
+
+		DataTransfer PO2 = new DataTransfer();
+		PO2.SetName("PO2");
+		PO2.Value = new TransferOperation("localhost", "2000", "p5");
+		pn.PlaceList.add(PO2);
+		
 		// -------------------------------------------------------------------------------------------
 		// --------------------------------Intersection-----------------------------------------------
 		// -------------------------------------------------------------------------------------------
@@ -174,10 +175,10 @@ public class Intersection1 {
 		// --------------------------------Transitions-----------------------------------------------
 		// -------------------------------------------------------------------------------------------
 
-		// ---------------------------------First Lane
-		// Input+Output-----------------------------------
+		// ---------------------------------First Lane-----------------------------------------------
+		// Input+Output--------------------------------------------------------------------------------
 
-		// T_u1 ------------------------------------------------
+		// T_u1 ---------------------------------------------------------------------------------------
 		PetriTransition t1 = new PetriTransition(pn);
 		t1.TransitionName = "T_u1";
 		t1.InputPlaceName.add("P_a1");
@@ -206,7 +207,7 @@ public class Intersection1 {
 		t1.Delay = 0;
 		pn.Transitions.add(t1);
 
-		// T_e1 ------------------------------------------------
+		// T_e1 ------------------------------------------------------------------------------------------
 		PetriTransition t2 = new PetriTransition(pn);
 		t2.TransitionName = "T_e1";
 		t2.InputPlaceName.add("P_x1");
@@ -226,7 +227,7 @@ public class Intersection1 {
 		t2.Delay = 0;
 		pn.Transitions.add(t2);
 
-		// T_i1 ------------------------------------------------
+		// T_i1 ------------------------------------------------------------------------------------------
 		PetriTransition t3 = new PetriTransition(pn);
 		t3.TransitionName = "T_i1";
 		t3.InputPlaceName.add("P_b1");
@@ -244,7 +245,7 @@ public class Intersection1 {
 		t3.Delay = 0;
 		pn.Transitions.add(t3);
 
-		// T_g1-----------------------------------------------------------
+		// T_g1---------------------------------------------------------------------------------------------------
 		PetriTransition t4 = new PetriTransition(pn);
 		t4.TransitionName = "T_g1";
 		t4.InputPlaceName.add("P_I");
@@ -262,7 +263,7 @@ public class Intersection1 {
 		t4.Delay = 0;
 		pn.Transitions.add(t4);
 
-		// T_g1Exit----------------------------------------------------------------
+		// T_g1Exit-----------------------------------------------------------------------------------------
 
 		PetriTransition t5 = new PetriTransition(pn);
 		t5.TransitionName = "T_g1Exit";
@@ -278,11 +279,11 @@ public class Intersection1 {
 		t5.Delay = 0;
 		pn.Transitions.add(t5);
 
-		// ---------------------------------Second Lane
-		// Input only-----------------------------------
-		// -------------------------------------------------------------------------------------
+		// ---------------------------------Second Lane-----------------------------------------------
+		// Input only----------------------------------------------------------------------------------
+		// --------------------------------------------------------------------------------------------
 
-		// T_u2 ------------------------------------------------
+		// T_u2 ------------------------------------------------------------------------------------------
 		PetriTransition t6 = new PetriTransition(pn);
 		t6.TransitionName = "T_u2";
 		t6.InputPlaceName.add("P_a2");
@@ -311,7 +312,7 @@ public class Intersection1 {
 		t6.Delay = 0;
 		pn.Transitions.add(t6);
 
-		// T_e2 ------------------------------------------------
+		// T_e2 ----------------------------------------------------------------------------------------
 		PetriTransition t7 = new PetriTransition(pn);
 		t7.TransitionName = "T_e2";
 		t7.InputPlaceName.add("P_x2");
@@ -330,7 +331,7 @@ public class Intersection1 {
 		t7.Delay = 0;
 		pn.Transitions.add(t7);
 
-		// T_i2 ------------------------------------------------
+		// T_i2 --------------------------------------------------------------------------------------
 		PetriTransition t8 = new PetriTransition(pn);
 		t8.TransitionName = "T_i2";
 		t8.InputPlaceName.add("P_b2");
@@ -348,11 +349,11 @@ public class Intersection1 {
 		t8.Delay = 0;
 		pn.Transitions.add(t8);
 
-		// ---------------------------------Third Lane
-		// Input + Output-------------------------
-		// -------------------------------------------------------------------------------------
+		// ---------------------------------Third Lane-----------------------------------------------
+		// Input + Output----------------------------------------------------------------------------
+		// ------------------------------------------------------------------------------------------
 
-		// T_u3 ------------------------------------------------
+		// T_u3 --------------------------------------------------------------------------------------
 		PetriTransition t9 = new PetriTransition(pn);
 		t9.TransitionName = "T_u3";
 		t9.InputPlaceName.add("P_a3");
@@ -365,8 +366,6 @@ public class Intersection1 {
 		GuardMapping grdt9 = new GuardMapping();
 		grdt9.condition = t9Ct1;
 		grdt9.Activations.add(new Activation(t9, "P_a3", TransitionOperation.AddElement, "P_x3"));
-		// grdt9.Activations.add(new Activation(t9, "P_a3",
-		// TransitionOperation.Move,"P_a3"));
 
 		Condition t9Ct3 = new Condition(t9, "P_a1", TransitionCondition.NotNull);
 		Condition t9Ct4 = new Condition(t9, "P_x1", TransitionCondition.CanNotAddCars);
@@ -383,7 +382,7 @@ public class Intersection1 {
 		t9.Delay = 0;
 		pn.Transitions.add(t9);
 
-		// T_e3 ------------------------------------------------
+		// T_e3 ----------------------------------------------------------------------------------------
 		PetriTransition t10 = new PetriTransition(pn);
 		t10.TransitionName = "T_e3";
 		t10.InputPlaceName.add("P_x3");
@@ -402,7 +401,7 @@ public class Intersection1 {
 		t10.Delay = 0;
 		pn.Transitions.add(t10);
 
-		// T_i3 ------------------------------------------------
+		// T_i3 -----------------------------------------------------------------------------------------
 		PetriTransition t11 = new PetriTransition(pn);
 		t11.TransitionName = "T_i3";
 		t11.InputPlaceName.add("P_b3");
@@ -420,7 +419,7 @@ public class Intersection1 {
 		t11.Delay = 0;
 		pn.Transitions.add(t11);
 
-		// T_g3---------------------------------------------------------
+		// T_g3--------------------------------------------------------------------------------------------------
 
 		PetriTransition t13 = new PetriTransition(pn);
 		t13.TransitionName = "T_g3";
@@ -436,7 +435,7 @@ public class Intersection1 {
 		grdt13.Activations.add(new Activation(t13, "P_I", TransitionOperation.PopElementWithTargetToQueue, "P_o3"));
 		t13.GuardMappingList.add(grdt13);
 
-		// T_g3Exit----------------------------------------------------------------
+		// T_g3Exit-----------------------------------------------------------------------------------------------------
 
 		PetriTransition t12 = new PetriTransition(pn);
 		t12.TransitionName = "T_g3Exit";
@@ -455,7 +454,7 @@ public class Intersection1 {
 		t13.Delay = 0;
 		pn.Transitions.add(t13);
 
-		// T_out---------------------------------------------------------
+		// T_out----------------------------------------------------------------------------------------------------
 		PetriTransition t14 = new PetriTransition(pn);
 		t14.TransitionName = "T_out";
 		t14.InputPlaceName.add("P_o3Exit");
@@ -470,7 +469,8 @@ public class Intersection1 {
 		t14.Delay=0;
 		pn.Transitions.add(t14);
 
-		// ----------------------------PNStart-------------------------------------------------
+		// -------------------------------------------------------------------------------------
+		// ----------------------------Petry Net-------------------------------------------------
 		// -------------------------------------------------------------------------------------
 
 		System.out.println("Start: Intersection 1\n");
