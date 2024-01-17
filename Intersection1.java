@@ -156,11 +156,6 @@ public class Intersection1 {
 		DataCar p14 = new DataCar();
 		p14.SetName("P_o2Exit");
 		pn.PlaceList.add(p14);
-
-		DataTransfer PO2 = new DataTransfer();
-		PO2.SetName("PO2");
-		PO2.Value = new TransferOperation("localhost", "2000", "p5");
-		pn.PlaceList.add(PO2);
 		
 		// -------------------------------------------------------------------------------------------
 		// --------------------------------Intersection-----------------------------------------------

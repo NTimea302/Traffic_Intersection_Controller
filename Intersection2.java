@@ -19,8 +19,7 @@ public class Intersection2 {
 	public static void main(String[] args) {
 
 		PetriNet pn = new PetriNet();
-		pn.PetriNetName = "Intersection 1";
-
+		pn.PetriNetName = "Intersection 2";
 		pn.NetworkPort = 1002;
 
 		DataString green = new DataString();
@@ -76,7 +75,7 @@ public class Intersection2 {
 
 		DataTransfer PO1 = new DataTransfer();
 		PO1.SetName("PO1");
-		PO1.Value = new TransferOperation("localhost", "2020", "p6");
+		PO1.Value = new TransferOperation("localhost", "1001", "p6");
 		pn.PlaceList.add(PO1);
 
 		// -------------------------------------------------------------------------------------
@@ -504,7 +503,7 @@ public class Intersection2 {
 		pn.Transitions.add(t14);
 
 		// -------------------------------------------------------------------------------------
-		// ----------------------------PNStart-------------------------------------------------
+		// ----------------------------Petry Net-------------------------------------------------
 		// -------------------------------------------------------------------------------------
 
 		System.out.println("Start: Intersection 2\n");
